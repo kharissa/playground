@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Interactivity Playground</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+        .img-container {
+            max-height: 250px;
+            max-width: 400px;
+        }
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+
+        #runaway-button {
+            position: relative;
+        }
+    </style>
+</head>
+  <body>
+    <div class="container p-4">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <header>
+                    <h1 class="m-4">It's Your Wedding Day!</h1>
+                    <p><strong>Priest</strong>: Do you take <span id="my-name">Bob</span> to be your husband/wife?</p>
+                </header>
+                <section class="img-container">
+                    <img id="julia-roberts" src="bride1.jpg" height="250" alt="Julia Roberts at the altar." />
+                    <p class="mt-4"><strong>Julia Roberts</strong>: <a href="https://www.youtube.com/watch?v=d-J4xYOxJ9w" target="_blank"><button type="button" id="runaway-button" class="btn btn-primary">"I do."</button></a></p>
+                </section>
+                <!-- <section>
+                    <button type="button" id="my-button" class="btn btn-primary">Click this button.</button>
+                    <p>This button has been clicked <span id="click-count">?</span> times.</p>
+                </section> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- In-Page Javascript -->
+    <script>
+        let myName = window.prompt("What is your name?");
+        const nameSpan = document.getElementById('my-name');
+        nameSpan.innerHTML = myName;
+
+        const imgJulia = document.getElementById('julia-roberts');
+        const runawayButton = document.getElementById('runaway-button');
+
+        let mouseOverCount = 0;
+
+        function randomX() {
+            return Math.floor(Math.random() * 200) + 'px';
+        }
+
+        function randomY() {
+            return Math.floor(Math.random() * 200) + 'px';
+        }
+
+        runawayButton.onmouseover = function() {
+
+            mouseOverCount++;
+
+            if (mouseOverCount == 1) {
+                imgJulia.setAttribute('src', 'bride2.jpg');
+            }
+
+            if (mouseOverCount == 10) {
+                imgJulia.setAttribute('src', 'bride3.jpg');
+                runawayButton.style.bottom = '';
+                runawayButton.style.left = '';
+            }
+            
+            if (mouseOverCount < 10) {
+                runawayButton.style.bottom = randomY();
+                runawayButton.style.left = randomX();
+            }
+        };
+
+        // function randomColor() {
+        //     const r = Math.floor(Math.random() * 256);
+        //     const g = Math.floor(Math.random() * 256);
+        //     const b = Math.floor(Math.random() * 256);
+        //     return 'rgb(' + r + ',' + g + ',' + b + ')';
+        // };
+
+        // const button = document.getElementById('my-button');
+        // const countSpan = document.getElementById('click-count');
+
+        // let clickCount = 0;
+
+        // button.onclick = function(){
+        //     clickCount++;
+        //     countSpan.innerHTML = clickCount;
+        //     button.style.backgroundColor = randomColor();
+        //     window.alert('I am clicked!');
+        // };
+
+        // button.onmouseover = function() {
+        //     button.style.color = 'black';
+        // }
+
+        // button.onmouseout = function () {
+        //         button.style.color = 'white';
+        // }
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
