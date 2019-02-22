@@ -35,11 +35,8 @@
     const button = document.getElementById("addButton"); // Grabbing button element
     const taskList = document.getElementById("task-list"); // Grabbing task list div
 
-    button.addEventListener("click", function(event){ // Prevents submission which reloads the page
-        event.preventDefault();
-    });
-
-    button.onclick = function() {
+    button.onclick = function(event) {
+        event.preventDefault(); // prevent default behavior of reloading page
         let input = document.getElementById("taskToDo").value; // Grabbing input value
 
         if (input != "") {
