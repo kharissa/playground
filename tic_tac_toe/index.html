@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Tic-Tac-Toe</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container p-4 text-center">
+            <h1>Tic-Tac-Toe Game</h1>
+
+            <!-- Game Options -->
+            <div id="game-intro" class="container">
+                <form id="game-options">
+                    Play against 
+                    <div class="btn-group btn-group-toggle m-2" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="human" id="human" autocomplete="off" checked>Human
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="computer" id="computer" autocomplete="off">Computer
+                        </label>
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <label for="game-size-input" class="col-4 col-form-label">Squares per Row</label>
+                        <div class="col-2">
+                            <input class="form-control" type="number" value="3" name="game-size-input">
+                        </div> 
+                    </div>
+                    <button type="submit" id="start-button" class="btn btn-primary">Start Game</button>
+                </form>
+            </div>
+            
+            <div id="turn-container" class="m-2 hidden">
+                <!-- Display player turn -->
+                <p>It is your turn, <span id="playerTurn">Player One</span>.</p>
+            </div>
+
+            <div class="container p-2 hidden" id="t-box-container">
+                <!-- Display game boxes here -->
+            </div>
+
+            <div class="container p-2 hidden" id="reset-container">
+                <!-- Reset game -->
+                <button id="reset-button" type="button" class="btn btn-primary">Reset Game</button>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <script src="script.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
