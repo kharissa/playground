@@ -5,6 +5,7 @@ const turnContainer = document.getElementById('turn-container');
 const gameStartForm = document.getElementById('game-options');
 const playerContainer = document.getElementById('playerTurn');
 const intro = document.getElementById('game-intro');
+const playerToggle = document.getElementById('player-toggle');
 
 let playerOne = [];
 let playerTwo = []; 
@@ -177,18 +178,15 @@ function computerPlay() {
     let computerIndex;
     let boxPosition;
 
-    if (playerTwo.length < 1) {
-        computerIndex = Math.floor(Math.random() * possibleMoves.length);
-        boxPosition = possibleMoves[computerIndex];
-    } else {
+    search: {
         let bestArray = [];
         for (let k = 0; k < possibleMoves.length; k++) {
-            for (let a = 0; a < playerTwo.length; a++) {
+            for (let a = 0; a < playerOne.length; a++) {
                 for (let i = 0; i < winningCombos.length; i++) {
-                    if (winningCombos[i].includes(playerTwo[a]) && winningCombos[i].includes(possibleMoves[k])) {
+                    if (winningCombos[i].includes(playerOne[a]) && winningCombos[i].includes(playerOne[a + 1]) && winningCombos[i].includes(possibleMoves[k])) {
                         boxPosition = possibleMoves[k];
-                        break;
-                    } else if (winningCombos[i].includes(possibleMoves[k])) {
+                        break search;
+                    } else if (winningCombos[i].includes(playerOne[a]) && winningCombos[i].includes(possibleMoves[k])) {
                         bestArray.push(possibleMoves[k]);
                     }
                 }
@@ -215,9 +213,11 @@ function reset() {
     result = false;
     computer = false;
     gameStartForm.elements["computer"].checked = false;
-
     gamebox.innerHTML = '';
 
+    for (let i = 0; i < playerToggle.children.length; i++) {
+        playerToggle.children[i].classList.remove('active');
+    }
     // Reveal Game Options  
     intro.classList.remove('hidden');
 
