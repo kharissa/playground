@@ -6,7 +6,7 @@ const choices = document.getElementById('guess-container');
 const list = document.getElementById('list-data');
 
 // List of random words
-const queries = ['design', 'programming', 'fantasy', 'sandwich', 'lol', 'fashion', 'landscape', 'vintage', 'film', 'art', 'animals', 'anime', 'magic', 'asia', 'dimsum', 'neopets', 'japan', 'DIY', 'europe', 'photography', 'airplane', 'college', 'fruits', 'desserts', 'hungry', 'train', 'boyband'];
+const queries = ['design', 'programming', 'fantasy', 'pasta', 'island', 'travel', 'sandwich', 'lol', 'fashion', 'landscape', 'vintage', 'film', 'art', 'animals', 'anime', 'magic', 'asia', 'dimsum', 'neopets', 'japan', 'DIY', 'europe', 'photography', 'airplane', 'books', 'fruits', 'desserts', 'hungry', 'train', 'boyband'];
 
 // Store correct tag word
 let correctQuery = '';
@@ -44,7 +44,12 @@ function startGame(num) {
         if ([i] == index) {correctQuery = query}; 
         
         // Add button classes & label button
-        button.classList.add('btn', 'btn-primary', 'm-2', 'btn-lg');
+        button.classList.add('btn', 'm-2', 'btn-lg');
+        let color = 'rgb(' + random(250) + ',' + random(230) + ',' + 
+        random(250) + ')';
+        button.style.backgroundColor = color;
+        button.style.color = 'white';
+        button.style.textShadow = '0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0, 0, 0, 0.1),0px 15px 23px rgba(0, 0, 0, 0.1)';
         button.innerHTML = query;
 
         // Add button to choices container
